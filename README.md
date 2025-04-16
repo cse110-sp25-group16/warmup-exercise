@@ -6,3 +6,5 @@ CSE110 warmup exercise card game
 
 # To-Do:
 - Research best practices (JS, CSS, HTML)
+
+ # Architecture/Planning
