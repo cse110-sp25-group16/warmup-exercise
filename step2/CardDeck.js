@@ -1,4 +1,3 @@
-
 import './Card.js';
 
 class CardDeck {
@@ -57,3 +56,5 @@ class CardDeck {
         this.cards.push(new Card(id,false));
     }
 }
+
+export default CardDeck;
