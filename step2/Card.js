@@ -1,3 +1,4 @@
+export default Card;
 
 let cardDictionary = {
     0: "Ace of Clubs",
@@ -77,5 +78,3 @@ class Card {
         return this.faceup;
     }
 }
-
-export default Card;
