@@ -1,1 +1,66 @@
+/*This is just a 3rd-party font */
+.rye-regular {
+    font-family: "Rye", serif;
+    font-weight: 400;
+    font-style: normal;
+}
 
+/* Blackjack title header */
+header{
+    text-align: center;
+    font-family: "Rye", serif;
+    font-size: 30px;
+    letter-spacing: 15px;
+    color: #000000;
+    outline-style: dotted;
+    outline-color: #c9c05c;
+    outline-width: 5px;
+}
+
+/* Overall Site Visual Preset */
+body {
+    background-color: #307a2c;
+    text-align: center;
+}
+
+/* "Dealer's hand" label*/
+#dealer h2{
+    font-family: 'Courier New', Courier, monospace;
+    position: absolute;
+    left: 30%;
+    top: 20%;
+}
+/* Dealer's Cards */
+#dealer img{
+    margin: 10px;
+    height : 200px;
+    width: 140px; 
+}
+
+/* "Your hand" label*/
+#you h2{
+    font-family: 'Courier New', Courier, monospace;
+    position: absolute;
+    left: 30%;
+    top: 60%;
+}
+/* Your Cards */
+#you img{
+    margin: 10px;
+    height : 200px;
+    width: 140px; 
+}
+
+/* "hit" and "stay" buttons */
+#hit{
+    font-family: 'Courier New', Courier, monospace;
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+}
+#stay{
+    font-family: 'Courier New', Courier, monospace;
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+}
