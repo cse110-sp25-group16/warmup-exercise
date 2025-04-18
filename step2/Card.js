@@ -54,24 +54,45 @@ let cardDictionary = {
 }
 
 class Card {
+    /**
+     * 
+     * @param {number} id ID number to initialize card with
+     * @param {boolean} faceup Faceup boolean to initialize card with
+     */
     constructor(id, faceup = false) {
         this.id = id;
         this.faceup = faceup;
     }
 
+    /**
+     * Getter method for card name
+     * @returns {string} The corresponding string name of the card
+     */
     getCardName() {
         return cardDictionary[this.id];
     }
 
+    /**
+     * 
+     * @returns {number} The id vlaue of this card
+     */
     getCardId() {
         return this.id;
     }
 
+    /**
+     * 
+     * @returns {boolean} The state of the card after flipping
+     */
     flip() {
         this.faceup = !(this.faceup);
         return this.faceup;
     }
 
+    /**
+     * 
+     * @returns {boolean} The current state of the card
+     */
     isFaceUp() {
         return this.faceup;
     }

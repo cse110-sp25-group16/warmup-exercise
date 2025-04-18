@@ -1,24 +1,42 @@
 import './Card.js';
 
 class CardDeck {
+
+    /**
+     * Initializes an empty deck of cards
+     */
     constructor() {
         this.cards = [];
     }
 
+    /**
+     * 
+     * @returns {number} Current count of cards in deck
+     */
     getCardCount() {
         return this.cards.length;
     }
 
+    /**
+     * 
+     * @returns {Array<Card>} Array of cards in the deck
+     */
     getCards() {
         return this.cards;
     }
 
+    /**
+     * Fills the deck with a standard 52-card deck
+     */
     fillDeck() {
         for(let i = 0;i<52;i++) {
             this.cards.push(new Card(i,false));
         }
     }
 
+    /**
+     * Shuffles cards in deck according to Fisher-Yates algorithm
+     */
     shuffle() {
         let curr = this.getCardCount();
 
@@ -32,6 +50,9 @@ class CardDeck {
         }
     }
 
+    /**
+     * Helper function: Prints out all cards currently in deck by id into console
+     */
     printCards() {
         let max = this.getCardCount();
         for(let i = 0;i<max;i++) {
@@ -39,6 +60,10 @@ class CardDeck {
         }
     }
 
+    /**
+     * 
+     * @param {number} id Removes card from deck of given id
+     */
     removeCard(id) {
         let max = this.getCardCount();
         for(let i = 0;i<max;i++) {
@@ -48,10 +73,18 @@ class CardDeck {
         }
     }
 
+    /**
+     * 
+     * @returns {Card} Returns top card of the deck
+     */
     removeTopCard() {
         return this.cards.pop();
     }
 
+    /**
+     * 
+     * @param {number} id Adds card of provided id to top of deck
+     */
     addCard(id) {
         this.cards.push(new Card(id,false));
     }
