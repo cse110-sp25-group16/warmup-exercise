@@ -1,0 +1,51 @@
+body {
+    background-color: #307a2c;
+    text-align: center;
+}
+
+.deck{
+    background:url(./cardsJPG/back.jpg);
+    background-size: contain;
+    cursor: pointer;
+    height: 195px;
+    width: 140px; 
+    position: absolute;
+    left: 15%
+}
+
+#cardDeck h2{
+    position: absolute;
+    left: 16%;
+    top: 30%;
+}
+#cardDeck img{
+    position: absolute;
+    left: 16%;
+    height: 195px;
+    width: 140px; 
+}
+
+#flipCard h2{
+    text-align: center;
+}
+
+#flipCard img{
+    text-align: center;
+    height: 195px;
+    width: 140px; 
+}
+
+#shuffle h2{
+    position: absolute;
+    right: 16%;
+    top: 30%;
+}
+
+#shuffle img{
+    position: absolute;
+    right: 16%;
+    top: 1%;
+    height: 195px;
+    width: 140px; 
+}
+
