@@ -3,40 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="cardstyle.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rye&family=swap" rel="stylesheet">
+    <link rel="stylesheet" href="cards.css">
     <title>WarmUp</title>
 </head>
 <body>
     <main>
-        <header>
-            <h1>Blackjack</h1>
-        </header>
-        
-        <div id="dealer">
-            <h2>Dealer's Hand:</h2>
-            <br>
-            <img src="cardsJPG/back.jpg" class="cards">
-            <img src="cardsJPG/copy1.jpg" class="cards">
+        <div id="cardDeck">
+            <h2>Card Deck</h2>
+            <img src="/cardsJPG/back.jpg">
         </div>
-    
-        <br>
-        <div id="you">
-            <h2>Your Hand:</h2>
-            <br>
-            <img src="cardsJPG/copy2.jpg" class="cards">
-            <img src="cardsJPG/copy3.jpg" class="cards">
+        <input class="deck" type="submit" value="">
+
+        <div id="flipCard">
+            <h2>Flip Card</h2>
+            <img src="/cardsJPG/back.jpg" id="cardImage">
+            <img src="/cardsJPG/copy1.jpg" id="cardImage">
         </div>
 
-        <br>
-
-        <button id="hit"><p>Hit</p></button>
-        <button id="stay"><p>Stay</p></button>
-
-        <div id="cards"></div>
-
+        <div id="shuffle">
+            <h2>Shuffle Cards</h2>
+            <img src="/cardsJPG/copy2.jpg" id="cardImage">
+            <img src="/cardsJPG/copy3.jpg" id="cardImage">
+            <img src="/cardsJPG/copy4.jpg" id="cardImage">
+        </div>
     </main>
-</body>
 </html>
