@@ -27,4 +27,20 @@
             <img src="./cardsJPG/3.jpg" id="cardImage">
         </div>
     </main>
+    <script>
+        // Get the deck button and shuffle container
+        const deckButton = document.querySelector('.deck');
+        const shuffleContainer = document.getElementById('shuffle');
+        
+        // Add click event to the deck button
+        deckButton.addEventListener('click', function() {
+            // Add the shuffling class to fan out the cards
+            shuffleContainer.classList.add('shuffling');
+            
+            // After a delay, remove the class to bring cards back together
+            setTimeout(function() {
+                shuffleContainer.classList.remove('shuffling');
+            }, 1000);
+        });
+    </script>
 </html>
