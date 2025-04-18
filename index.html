@@ -1,46 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="cards.css">
-    <title>WarmUp</title>
-</head>
-<body>
-    <main>
-        <div id="cardDeck">
-            <h2>Card Deck</h2>
-            <img src="./cardsJPG/back.jpg">
-        </div>
-        <input class="deck" type="submit" value="">
-
-        <div id="flipCard">
-            <h2>Flip Card</h2>
-            <img src="./cardsJPG/back.jpg" id="cardImage">
-            <img src="./cardsJPG/0.jpg" id="cardImage">
-        </div>
-
-        <div id="shuffle">
-            <h2>Shuffle Cards</h2>
-            <img src="./cardsJPG/1.jpg" id="cardImage">
-            <img src="./cardsJPG/2.jpg" id="cardImage">
+<!DOCTYPE html> 
+<html lang="en"> 
+<head>     
+    <meta charset="UTF-8">     
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">     
+    <link rel="stylesheet" href="cards.css">     
+    <title>WarmUp</title> 
+</head> 
+<body>     
+    <main>         
+        <div id="cardDeck">             
+            <h2>Card Deck</h2>             
+            <img src="./cardsJPG/back.jpg">         
+        </div>         
+        <input class="deck" type="submit" value="">          
+        <div id="flipCard">             
+            <h2>Flip Card</h2>             
+            <img src="./cardsJPG/back.jpg" id="cardImage">             
+            <img src="./cardsJPG/0.jpg" id="cardImage">         
+        </div>          
+        <div id="shuffle">             
+            <h2>Shuffle Cards</h2>             
+            <img src="./cardsJPG/1.jpg" id="cardImage">             
+            <img src="./cardsJPG/2.jpg" id="cardImage">             
             <img src="./cardsJPG/3.jpg" id="cardImage">
-        </div>
+            <img src="./cardsJPG/4.jpg" id="cardImage">
+            <img src="./cardsJPG/5.jpg" id="cardImage">
+            <img src="./cardsJPG/6.jpg" id="cardImage">
+            <img src="./cardsJPG/7.jpg" id="cardImage">        
+        </div>     
     </main>
+
     <script>
-        // Get the deck button and shuffle container
+        // Get the deck button and the shuffle container
         const deckButton = document.querySelector('.deck');
         const shuffleContainer = document.getElementById('shuffle');
         
-        // Add click event to the deck button
+        // Add click event listener to the deck button
         deckButton.addEventListener('click', function() {
             // Add the shuffling class to fan out the cards
             shuffleContainer.classList.add('shuffling');
             
-            // After a delay, remove the class to bring cards back together
+            // After a delay, remove the class to bring cards back to stacked position
             setTimeout(function() {
                 shuffleContainer.classList.remove('shuffling');
             }, 1000);
         });
     </script>
+</body> 
 </html>
