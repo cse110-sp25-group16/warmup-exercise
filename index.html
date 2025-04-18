@@ -31,7 +31,28 @@
             <img src="./cardsJPG/1.jpg" id="cardImage">
             <img src="./cardsJPG/2.jpg" id="cardImage">
             <img src="./cardsJPG/3.jpg" id="cardImage">
-        </div>
+            <img src="./cardsJPG/4.jpg" id="cardImage">
+            <img src="./cardsJPG/5.jpg" id="cardImage">
+            <img src="./cardsJPG/6.jpg" id="cardImage">
+            <img src="./cardsJPG/7.jpg" id="cardImage">        
+        </div>     
     </main>
-</body>
+
+    <script>
+        // Get the deck button and the shuffle container
+        const deckButton = document.querySelector('.deck');
+        const shuffleContainer = document.getElementById('shuffle');
+        
+        // Add click event listener to the deck button
+        deckButton.addEventListener('click', function() {
+            // Add the shuffling class to fan out the cards
+            shuffleContainer.classList.add('shuffling');
+            
+            // After a delay, remove the class to bring cards back to stacked position
+            setTimeout(function() {
+                shuffleContainer.classList.remove('shuffling');
+            }, 1000);
+        });
+    </script>
+</body> 
 </html>
