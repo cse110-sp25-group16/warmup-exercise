@@ -3,49 +3,68 @@ body {
     text-align: center;
 }
 
-.deck{
+.deck {
     background:url(./cardsJPG/back.jpg);
     background-size: contain;
     cursor: pointer;
     height: 195px;
-    width: 140px; 
+    width: 140px;
     position: absolute;
     left: 15%
 }
 
-#cardDeck h2{
+#cardDeck h2 {
     position: absolute;
     left: 16%;
     top: 30%;
 }
-#cardDeck img{
+
+#cardDeck img {
     position: absolute;
     left: 16%;
     height: 195px;
-    width: 140px; 
+    width: 140px;
 }
 
-#flipCard h2{
+#flipCard h2 {
     text-align: center;
 }
 
-#flipCard img{
+#flipCard img {
     text-align: center;
     height: 195px;
-    width: 140px; 
+    width: 140px;
 }
 
-#shuffle h2{
+#shuffle h2 {
     position: absolute;
     right: 16%;
     top: 30%;
 }
 
-#shuffle img{
+#shuffle img {
     position: absolute;
     right: 16%;
     top: 1%;
     height: 195px;
-    width: 140px; 
+    width: 140px;
+    transition: transform 0.6s ease-in-out;
 }
 
+/* Ensures the cards fan out cleanly, with the top card being visually on top */
+#shuffle img:nth-child(2) { z-index: 7; }
+#shuffle img:nth-child(3) { z-index: 6; }
+#shuffle img:nth-child(4) { z-index: 5; }
+#shuffle img:nth-child(5) { z-index: 4; }
+#shuffle img:nth-child(6) { z-index: 3; }
+#shuffle img:nth-child(7) { z-index: 2; }
+#shuffle img:nth-child(8) { z-index: 1; }
+
+/* Animation for the shuffle so it fans to the right */
+#shuffle.shuffling img:nth-child(2) { transform: translateX(0px)}
+#shuffle.shuffling img:nth-child(3) { transform: translateX(30px)}
+#shuffle.shuffling img:nth-child(4) { transform: translateX(60px)}
+#shuffle.shuffling img:nth-child(5) { transform: translateX(90px)}
+#shuffle.shuffling img:nth-child(6) { transform: translateX(120px)}
+#shuffle.shuffling img:nth-child(7) { transform: translateX(150px)}
+#shuffle.shuffling img:nth-child(8) { transform: translateX(180px)}
