@@ -1,4 +1,4 @@
-import './Card.js';
+import Card from './Card.js';
 
 class CardDeck {
 
@@ -48,6 +48,8 @@ class CardDeck {
             this.cards[curr] = this.cards[random];
             this.cards[random] = temp;
         }
+
+        return this.cards;
     }
 
     /**
