@@ -4,7 +4,7 @@ body {
 }
 
 .deck {
-    background:url(./cardsJPG/back.jpg);
+    background:url(../cardsJPG/back.jpg);
     background-size: contain;
     cursor: pointer;
     height: 195px;
