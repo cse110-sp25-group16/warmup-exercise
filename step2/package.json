@@ -1,0 +1,7 @@
+{
+    "exports": {
+        "./Card.js": "./Card.js",
+        "./CardDeck.js": "./CardDeck.js"
+    },
+    "type": "module"
+}
