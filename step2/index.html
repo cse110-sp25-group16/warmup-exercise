@@ -25,8 +25,8 @@
                 </div>
             </div>
         </div>
-        <script src="./Flip.js"></script>
-
+        
+        
         <div id="shuffle">
             <h2>Shuffle Cards</h2>
             <img src="../cardsJPG/1.jpg" id="cardImage">
@@ -39,21 +39,7 @@
         </div>     
     </main>
 
-    <script>
-        // Get the deck button and the shuffle container
-        const deckButton = document.querySelector('.deck');
-        const shuffleContainer = document.getElementById('shuffle');
-        
-        // Add click event listener to the deck button
-        deckButton.addEventListener('click', function() {
-            // Add the shuffling class to fan out the cards
-            shuffleContainer.classList.add('shuffling');
-            
-            // After a delay, remove the class to bring cards back to stacked position
-            setTimeout(function() {
-                shuffleContainer.classList.remove('shuffling');
-            }, 1000);
-        });
-    </script>
+    <script src="./Flip.js"></script>
+    <script type="module" src="./main.js"></script>
 </body> 
 </html>
