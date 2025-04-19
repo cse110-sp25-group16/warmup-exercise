@@ -197,24 +197,24 @@ body {
   }
   
   /* Fan-out when container has .dealing */
-  #dealtCards.dealing img:nth-child(1) {
-    transform: translateX(-160px) rotate(-10deg);
-    z-index: 5;
-  }
-  #dealtCards.dealing img:nth-child(2) {
-    transform: translateX(-80px) rotate(-5deg);
-    z-index: 4;
-  }
-  #dealtCards.dealing img:nth-child(3) {
-    transform: translateX(0px) rotate(0deg);
-    z-index: 3;
-  }
-  #dealtCards.dealing img:nth-child(4) {
-    transform: translateX(80px) rotate(5deg);
-    z-index: 2;
-  }
-  #dealtCards.dealing img:nth-child(5) {
-    transform: translateX(160px) rotate(10deg);
-    z-index: 1;
-  }
+#dealtCards.dealing img:nth-child(1) {
+  transform: translateX(calc(-160px - 50%)) rotate(-10deg);
+  z-index: 5;
+}
+#dealtCards.dealing img:nth-child(2) {
+  transform: translateX(calc(-80px - 50%)) rotate(-5deg);
+  z-index: 4;
+}
+#dealtCards.dealing img:nth-child(3) {
+  transform: translateX(calc(0px - 50%)) rotate(0deg); /* or just -50% */
+  z-index: 3;
+}
+#dealtCards.dealing img:nth-child(4) {
+  transform: translateX(calc(80px - 50%)) rotate(5deg);
+  z-index: 2;
+}
+#dealtCards.dealing img:nth-child(5) {
+  transform: translateX(calc(160px - 50%)) rotate(10deg);
+  z-index: 1;
+}
   

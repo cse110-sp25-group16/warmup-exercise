@@ -7,7 +7,7 @@ import { dealCards } from './dealCards.js';
 const deck = new CardDeck();
 deck.fillDeck(); // Fill the deck with cards
 deck.printCards(); // Print the cards to console
-const shuffleButton = document.querySelector('.deck');
+const shuffleButton = document.querySelector('#shuffleButton');
 
 shuffleButton.addEventListener('click', () => {
     shuffleDeck(deck);
