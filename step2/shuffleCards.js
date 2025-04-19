@@ -1,7 +1,3 @@
-import './CardDeck.js';
-import './Card.js';
-
-
 // function to dipslay shuffled cards in the UI
 function displayCards(shuffledDeck) {
     const shuffleContainer = document.getElementById('shuffle');
@@ -23,7 +19,7 @@ function displayCards(shuffledDeck) {
     });
 }
 
-export function shuffleDeck(deck){
+function shuffleDeck(deck){
     const shuffleContainer = document.getElementById('shuffle');
     const shuffledDeck = deck.shuffle();
     displayCards(shuffledDeck);  // Display shuffled cards in the UI
