@@ -7,6 +7,7 @@ class CardDeck {
      */
     constructor() {
         this.cards = [];
+        this.displayCards = []
     }
 
     /**
