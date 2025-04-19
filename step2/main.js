@@ -16,5 +16,7 @@ shuffleButton.addEventListener('click', () => {
 const dealButton = document.querySelector("#deal")
 dealButton.addEventListener("click", () => {
    console.log("deal button clicked")
-   dealCards(deck, 5)
+    dealCards(deck, 5)
+    const cardsLeft = document.getElementById("numberOfCardsLeft")
+    cardsLeft.innerHTML = `# Cards Left in Deck: ${deck.getCardCount()}`
 })
