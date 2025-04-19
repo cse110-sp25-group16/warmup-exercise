@@ -1,5 +1,6 @@
 import { shuffleDeck } from './shuffleCards.js';
 import CardDeck from './CardDeck.js';
+import { dealCards } from './dealCards.js';
 
 
 // Create a new deck instance
@@ -11,3 +12,9 @@ const shuffleButton = document.querySelector('.deck');
 shuffleButton.addEventListener('click', () => {
     shuffleDeck(deck);
 });
+
+const dealButton = document.querySelector("#deal")
+dealButton.addEventListener("click", () => {
+   console.log("deal button clicked")
+   dealCards(deck, 5)
+})

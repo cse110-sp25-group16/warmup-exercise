@@ -142,6 +142,25 @@ body {
     transition: transform 0.6s ease-in-out;
 }
 
+#deal {
+   margin-top: 100px
+}
+
+#dealtCards {
+   margin-top: 20px;
+   display: flex;
+   flex-direction: row;
+   width: 100%
+   
+}
+
+#dealtCards img {
+   height: 195px;
+   width: 140px;
+   transition: transform 0.6s ease-in-out;
+   margin-left: 20px
+}
+
 /* Ensures the cards fan out cleanly, with the top card being visually on top */
 #shuffle img:nth-child(2) { z-index: 7; }
 #shuffle img:nth-child(3) { z-index: 6; }
