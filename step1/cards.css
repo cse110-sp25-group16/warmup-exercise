@@ -3,16 +3,6 @@ body {
     text-align: center;
 }
 
-.deck {
-    background:url(../cardsJPG/back.jpg);
-    background-size: contain;
-    cursor: pointer;
-    height: 195px;
-    width: 140px;
-    position: absolute;
-    left: 15%
-}
-
 #cardDeck h2 {
     position: absolute;
     left: 16%;
