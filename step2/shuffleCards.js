@@ -1,9 +1,12 @@
 import './CardDeck.js';
 import './Card.js';
 
+
+// function to dipslay shuffled cards in the UI
 function displayCards(shuffledDeck) {
     const shuffleContainer = document.getElementById('shuffle');
     
+    // clear all the initial hardcoded cards 
     const existingCards = shuffleContainer.querySelectorAll('img');
     existingCards.forEach(card => card.remove());
 
@@ -22,14 +25,15 @@ function displayCards(shuffledDeck) {
 
 export function shuffleDeck(deck){
     const shuffleContainer = document.getElementById('shuffle');
-    shuffleContainer.classList.add('shuffling');
-
     const shuffledDeck = deck.shuffle();
+    displayCards(shuffledDeck);  // Display shuffled cards in the UI
+
+    setTimeout(() => {
+        shuffleContainer.classList.add('shuffling');  // Start shuffle animation
+    }, 0);
 
     setTimeout(() => {
         shuffleContainer.classList.remove('shuffling');  // End shuffle animation
-        
-        displayCards(shuffledDeck);  // Display shuffled cards in the UI
     }, 1000);
 
     return shuffledDeck;
