@@ -1,5 +1,5 @@
 
-export const dealCards = (deck, numCards) => {
+const dealCards = (deck, numCards) => {
     if (deck.cards.length < numCards) return // if there aren't enough cards left, return
     
    const dealtCards = []

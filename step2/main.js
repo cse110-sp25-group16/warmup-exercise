@@ -1,7 +1,6 @@
-import { shuffleDeck } from './shuffleCards.js';
-import CardDeck from './CardDeck.js';
-import { dealCards } from './dealCards.js';
-
+// import { shuffleDeck } from './shuffleCards.js';
+// import CardDeck from './CardDeck.js';
+// import { dealCards } from './dealCards.js';
 
 // Create a new deck instance
 const deck = new CardDeck();

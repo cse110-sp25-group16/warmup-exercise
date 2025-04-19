@@ -97,5 +97,3 @@ class Card {
         return this.faceup;
     }
 }
-
-export default Card;

@@ -1,7 +1,8 @@
 {
     "exports": {
         "./Card.js": "./Card.js",
-        "./CardDeck.js": "./CardDeck.js"
+        "./CardDeck.js": "./CardDeck.js",
+        "./main.js": "./main.js"
     },
     "type": "module"
 }
