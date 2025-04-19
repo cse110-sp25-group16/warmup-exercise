@@ -58,7 +58,7 @@ class CardDeck {
     printCards() {
         let max = this.getCardCount();
         for(let i = 0;i<max;i++) {
-            console.log(this.cards[i].id);
+            // console.log(this.cards[i].id);
         }
     }
 
