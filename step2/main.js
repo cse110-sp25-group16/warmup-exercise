@@ -1,3 +1,10 @@
+/**
+ * @file main.js
+ * @description
+ * Initializes the CardDeck, wires up the "Shuffle" and "Deal" buttons,
+ * and updates the UI with the remaining card count.
+ */
+
 // import { shuffleDeck } from './shuffleCards.js';
 // import CardDeck from './CardDeck.js';
 // import { dealCards } from './dealCards.js';
