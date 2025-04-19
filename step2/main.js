@@ -36,10 +36,3 @@ dealOneButton.addEventListener("click", () => {
    const cardsLeft = document.getElementById("numberOfCardsLeft")
    cardsLeft.innerHTML = `# Cards Left in Deck: ${deck.getCardCount()}`
 })
-
-const dealOneButton = document.querySelector("#dealOne")
-dealOneButton.addEventListener("click", () => {
-   dealCards(deck, 1, true)
-   const cardsLeft = document.getElementById("numberOfCardsLeft")
-   cardsLeft.innerHTML = `# Cards Left in Deck: ${deck.getCardCount()}`
-})
