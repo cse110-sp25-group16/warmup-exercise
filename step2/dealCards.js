@@ -1,4 +1,14 @@
-
+/**
+ * Deals a specified number of cards from the top of the deck and
+ * renders them in the UI by clearing previous cards, appending
+ * `<img>` elements for each dealt card, and triggering the
+ * CSS “dealing” animation.
+ *
+ * @param {CardDeck} deck
+ *   The `CardDeck` instance to draw cards from.
+ * @param {number} numCards
+ *   How many cards to deal from the deck.
+ */
 const dealCards = (deck, numCards) => {
     if (deck.cards.length < numCards) return // if there aren't enough cards left, return
     
