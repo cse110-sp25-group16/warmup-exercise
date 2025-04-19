@@ -16,23 +16,23 @@ import { dealCards } from './dealCards.js';
 const deck = new CardDeck();
 deck.fillDeck(); // Fill the deck with cards
 deck.printCards(); // Print the cards to console
-const shuffleButton = document.querySelector('#shuffleButton');
+const shuffleButton = document.querySelector("#shuffleButton");
 
-shuffleButton.addEventListener('click', () => {
-    shuffleDeck(deck);
+shuffleButton.addEventListener("click", () => {
+  shuffleDeck(deck);
 });
 
-const dealButton = document.querySelector("#deal")
+const dealButton = document.querySelector("#deal");
 dealButton.addEventListener("click", () => {
-   console.log("deal button clicked")
-    dealCards(deck, 5)
-    const cardsLeft = document.getElementById("numberOfCardsLeft")
-    cardsLeft.innerHTML = `# Cards Left in Deck: ${deck.getCardCount()}`
-})
+  console.log("deal button clicked");
+  dealCards(deck, 5);
+  const cardsLeft = document.getElementById("numberOfCardsLeft");
+  cardsLeft.innerHTML = `# Cards Left in Deck: ${deck.getCardCount()}`;
+});
 
-const dealOneButton = document.querySelector("#dealOne")
+const dealOneButton = document.querySelector("#dealOne");
 dealOneButton.addEventListener("click", () => {
-   dealCards(deck, 1, true)
-   const cardsLeft = document.getElementById("numberOfCardsLeft")
-   cardsLeft.innerHTML = `# Cards Left in Deck: ${deck.getCardCount()}`
-})
+  dealCards(deck, 1, true);
+  const cardsLeft = document.getElementById("numberOfCardsLeft");
+  cardsLeft.innerHTML = `# Cards Left in Deck: ${deck.getCardCount()}`;
+});
