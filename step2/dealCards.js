@@ -23,5 +23,11 @@ export const dealCards = (deck, numCards) => {
       // cardElement.classList.add('cardPic');
   
       dealtContainer.appendChild(cardElement);
+         // Force reflow to restart CSS animation
+      
+      void dealtContainer.offsetWidth;
+
+      dealtContainer.classList.add("dealing"); // <- trigger fan-out
    })
 }
+
