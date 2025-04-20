@@ -14,6 +14,7 @@ const deck = new CardDeck();
 deck.fillDeck(); // Fill the deck with cards
 deck.printCards(); // Print the cards to console
 const shuffleButton = document.querySelector("#shuffleButton");
+shuffleDeck(deck);
 
 shuffleButton.addEventListener("click", () => {
   shuffleDeck(deck);
@@ -32,4 +33,17 @@ dealOneButton.addEventListener("click", () => {
   dealCards(deck, 1, true);
   const cardsLeft = document.getElementById("numberOfCardsLeft");
   cardsLeft.innerHTML = `# Cards Left in Deck: ${deck.getCardCount()}`;
+});
+
+document.getElementById("deal").addEventListener("click", () => {
+  deck.shuffle();
+  deal();
+});
+
+document.getElementById("hit").addEventListener("click", () => {
+  playerHit();
+});
+
+document.getElementById("stand").addEventListener("click", () => {
+  playerStand();
 });

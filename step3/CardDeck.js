@@ -29,8 +29,48 @@ class CardDeck {
      */
     fillDeck() {
         for(let i = 0;i<52;i++) {
-            this.cards.push(new Card(i,false));
+            rank = i % 13;
+
+            if (rank === 0) 
+                value = 1; // Ace 
+            else if (rank >= 10) 
+                value = 10; // Jack, Queen, King
+            else 
+                value = rank + 1;
+            
+
+
+            this.cards.push(new Card(i,false, value));
         }
+    }
+
+    /**
+     * 
+     * @returns {number} Value of the hanc
+     */
+
+    handvalue() {
+        const cardsValue = document.getElementById("total");
+        let total = 0;
+        let aceCount = 0;
+
+        for (let i = 0; i < this.displayCards.length; i++) {
+            let card = this.displayCards[i];
+            total += card.value;
+            if (card.value === 11) aceCount++;
+        }
+
+        // Adjust Aces from 11 to 1 if total is over 21
+        while (total > 21 && aceCount > 0) {
+            total -= 10;
+            aceCount--;
+        }
+
+        if (cardsValue) {
+            cardsValue.innerHTML = `Your total: ${total}`;
+        }
+
+        return total;
     }
 
     /**

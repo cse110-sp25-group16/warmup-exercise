@@ -58,10 +58,13 @@ class Card {
      * 
      * @param {number} id ID number to initialize card with
      * @param {boolean} faceup Faceup boolean to initialize card with
+     * @param {number} value Value for Blackjack
      */
-    constructor(id, faceup = false) {
+    constructor(id, faceup = false, value) {
         this.id = id;
         this.faceup = faceup;
+        this.value = value;
+        
     }
 
     /**
@@ -72,13 +75,26 @@ class Card {
         return cardDictionary[this.id];
     }
 
+
     /**
      * 
-     * @returns {number} The id vlaue of this card
+     * @returns {number} The id value of this card
      */
     getCardId() {
         return this.id;
     }
+    
+
+    /**
+     * 
+     * @returns {number} The value of this card
+     */
+    getCardValue() {
+        return this.value;
+    }
+    
+
+
 
     /**
      * 
