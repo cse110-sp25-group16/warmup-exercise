@@ -1,5 +1,7 @@
 body {
     background-color: #307a2c;
+    background-image: url("./background.jpg");
+    background-size: 170vh;
     text-align: center;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     align-content: center;
