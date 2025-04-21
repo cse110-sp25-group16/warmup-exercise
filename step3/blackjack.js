@@ -65,11 +65,11 @@ function dealerTurn() {
 
   if (mode === "brain-dead") {
     const hits = Math.floor(Math.random() * 2) + 1; // 1 or 2
-    for (let i = 0; i < hits && deck.cardsRemaining() > 0; i++) {
+    for (let i = 0; i < hits && deck.getCardCount() > 0; i++) {
       dealer.push(deck.removeTopCard());
     }
   } else if (mode === "random") {
-    while (Math.random() < 0.5 && deck.cardsRemaining() > 0) {
+    while (Math.random() < 0.5 && deck.getCardCount() > 0) {
       dealer.push(deck.removeTopCard());
     }
   } else {
@@ -78,7 +78,6 @@ function dealerTurn() {
     }
   }
 }
-
 
 function endGame() {
   dealerTurn();
