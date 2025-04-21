@@ -129,26 +129,6 @@ function renderHand(containerId, hand, hideSecond = false) {
     flipCard.appendChild(cardPicFront);
 
     container.appendChild(flipCard);
-
-/*<div class = "flipCardInner">
-    <div class ="cardPic cardPic--back">
-        <img src="../cardsJPG/back.jpg" id="cardImage">
-    </div>
-    <div class="cardPic cardPic--front">
-        <img src="../cardsJPG/0.jpg" id="cardImage">
-    </div>
-  </div>*/
-
-  /*
-    const img = document.createElement("img");
-    img.src = (index === 1 && hideSecond && containerId === "dealerHand")
-      ? "../cardsJPG/back.jpg"
-      : `../cardsJPG/${card.id}.jpg`;
-    img.alt = card.getCardName();
-    img.style.margin = "5px";
-    img.style.height = "195px";
-    img.style.width = "140px";
-    container.appendChild(img);*/
   });
 }
 
