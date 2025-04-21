@@ -10,16 +10,62 @@ function initGame() {
   deck.fillDeck();
   deck.shuffle();
 
+  const shuffleContainer = document.getElementById('shuffle');
+  const shuffleImg = document.querySelectorAll('#cardImage');
+  setTimeout(() => {
+      shuffleContainer.classList.add('shuffling');  // Start shuffle animation
+      shuffleImg.forEach(image => {
+        console.log("test");
+        image.style.visibility = 'visible';
+      });
+  }, 0);
+
+  setTimeout(() => {
+      shuffleContainer.classList.remove('shuffling');  // End shuffle animation
+  }, 1000);
+
+  setTimeout(() => {
+    shuffleImg.forEach(image => {
+      image.style.visibility = 'hidden';
+    });
+  }, 1580);
+
   player = [deck.removeTopCard(), deck.removeTopCard()];
   dealer = [deck.removeTopCard(), deck.removeTopCard()];
 
-  renderHands(true);
+  setTimeout(() => {
+    renderHands(true);
+  }, 1580)
+
   document.getElementById("result").textContent = "";
+
+  document.getElementById("hit").addEventListener("click", playerHit);
+  document.getElementById("stand").addEventListener("click", endGame);
 }
 
 function renderHands(hideDealerSecondCard = false) {
   renderHand("playerHand", player);
   renderHand("dealerHand", dealer, hideDealerSecondCard);
+
+  setTimeout(() => {
+    flip(hideDealerSecondCard);
+  })
+}
+
+function flip(dealer = false) {
+  var cards = document.querySelectorAll('.flipCardInner');
+  cards.forEach(card => {
+    console.log('flipping!');
+    card.classList.toggle('is-flipped');
+  })
+
+  if(dealer) {
+    var cards = document.querySelectorAll('.flipCardInner--dealer');
+    cards.forEach(card => {
+      card.classList.toggle('is-flipped');
+      card.classList.toggle('dealer');
+    })
+  }
 }
 
 function renderHand(containerId, hand, hideSecond = false) {
@@ -27,6 +73,56 @@ function renderHand(containerId, hand, hideSecond = false) {
   container.innerHTML = "";
 
   hand.forEach((card, index) => {
+
+    const flipCard = document.createElement("div");
+    flipCard.style.margin = "5px";
+    flipCard.style.height = "195px";
+    flipCard.style.width = "140px";
+    flipCard.className = "flipCardInner";
+
+    if(hideSecond && index === 1) {
+      flipCard.className = "flipCardInner--dealer"
+    }
+
+    const cardPicBack = document.createElement("div");
+    cardPicBack.className = "cardPic cardPic--back";
+
+    const backImg = document.createElement("img");
+    backImg.src = "../cardsJPG/back.jpg";
+    backImg.id = "cardImage";
+    backImg.alt = card.getCardName();
+    backImg.style.margin = "5px";
+    backImg.style.height = "195px";
+    backImg.style.width = "140px";
+    cardPicBack.appendChild(backImg);
+
+    const cardPicFront = document.createElement("div");
+    cardPicFront.className = "cardPic cardPic--front";
+
+    const frontImg = document.createElement("img");
+    frontImg.src = `../cardsJPG/${card.id}.jpg`;
+    frontImg.id = "cardImage";
+    frontImg.alt = card.getCardName();
+    frontImg.style.margin = "5px";
+    frontImg.style.height = "195px";
+    frontImg.style.width = "140px";
+    cardPicFront.appendChild(frontImg);
+
+    flipCard.appendChild(cardPicBack);
+    flipCard.appendChild(cardPicFront);
+
+    container.appendChild(flipCard);
+
+/*<div class = "flipCardInner">
+    <div class ="cardPic cardPic--back">
+        <img src="../cardsJPG/back.jpg" id="cardImage">
+    </div>
+    <div class="cardPic cardPic--front">
+        <img src="../cardsJPG/0.jpg" id="cardImage">
+    </div>
+  </div>*/
+
+  /*
     const img = document.createElement("img");
     img.src = (index === 1 && hideSecond && containerId === "dealerHand")
       ? "../cardsJPG/back.jpg"
@@ -35,9 +131,10 @@ function renderHand(containerId, hand, hideSecond = false) {
     img.style.margin = "5px";
     img.style.height = "195px";
     img.style.width = "140px";
-    container.appendChild(img);
+    container.appendChild(img);*/
   });
 }
+
 
 function handValue(hand) {
   let total = 0, aces = 0;
@@ -56,8 +153,11 @@ function handValue(hand) {
 
 function playerHit() {
   player.push(deck.removeTopCard());
+  if (handValue(player) > 21) {
+    endGame();
+    return;
+  }
   renderHands(true);
-  if (handValue(player) > 21) endGame();
 }
 
 function dealerTurn() {
@@ -65,11 +165,11 @@ function dealerTurn() {
 
   if (mode === "brain-dead") {
     const hits = Math.floor(Math.random() * 2) + 1; // 1 or 2
-    for (let i = 0; i < hits && deck.cardsRemaining() > 0; i++) {
+    for (let i = 0; i < hits && deck.getCardCount() > 0; i++) {
       dealer.push(deck.removeTopCard());
     }
   } else if (mode === "random") {
-    while (Math.random() < 0.5 && deck.cardsRemaining() > 0) {
+    while (Math.random() < 0.5 && deck.getCardCount() > 0) {
       dealer.push(deck.removeTopCard());
     }
   } else {
@@ -88,13 +188,33 @@ function endGame() {
   const d = handValue(dealer);
 
   let result = "";
-  if (p > 21) result = "You busted! Dealer wins.";
-  else if (d > 21 || p > d) result = "You win!";
-  else if (p === d) result = "Push!";
-  else result = "Dealer wins!";
+  let balChange ="";
+  if (p > 21) {
+    result = "You busted! Dealer wins";
+    balChange = "-$10";
+    document.getElementById("balChange").style.color = 'red';
+  } else if (d > 21 || p > d) {
+    result = "You win!";
+    balChange = "+$10";
+    document.getElementById("balChange").style.color = 'green';
+  } else if (p === d) { 
+    result = "Push!"; 
+    balChange = "+$0";
+    document.getElementById("balChange").style.color = 'green';
+  } else { 
+    result = "Dealer wins!";
+    balChange = "-$10";
+    document.getElementById("balChange").style.color = 'red';
+  }
 
   updateBankroll(result);
   document.getElementById("result").textContent = result;
+  document.getElementById("balChange").textContent = balChange;
+  document.getElementById("resultPopupText").textContent = result;
+
+  document.getElementById("resultPopup").setAttribute("open", "");
+  document.getElementById("hit").removeEventListener("click", playerHit);
+  document.getElementById("stand").removeEventListener("click", endGame);
 }
 
 function updateBankroll(result) {
