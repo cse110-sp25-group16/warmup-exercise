@@ -13,6 +13,7 @@ function initGame() {
   deck.fillDeck();
   deck.shuffle();
 
+  // run shuffle animation
   const shuffleContainer = document.getElementById('shuffle');
   const shuffleImg = document.querySelectorAll('#cardImage');
   setTimeout(() => {
@@ -217,11 +218,13 @@ function endGame() {
     document.getElementById("balChange").style.color = 'red';
   }
 
+  // update game counters
   updateBankroll(result);
   document.getElementById("result").textContent = result;
   document.getElementById("balChange").textContent = balChange;
   document.getElementById("resultPopupText").textContent = result;
 
+  // display popup & remove button function after game end
   document.getElementById("resultPopup").setAttribute("open", "");
   document.getElementById("hit").removeEventListener("click", playerHit);
   document.getElementById("stand").removeEventListener("click", endGame);
