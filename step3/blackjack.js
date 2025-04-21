@@ -61,10 +61,24 @@ function playerHit() {
 }
 
 function dealerTurn() {
-  while (handValue(dealer) < 17) {
-    dealer.push(deck.removeTopCard());
+  const mode = document.getElementById("dealerMode").value;
+
+  if (mode === "brain-dead") {
+    const hits = Math.floor(Math.random() * 2) + 1; // 1 or 2
+    for (let i = 0; i < hits && deck.cardsRemaining() > 0; i++) {
+      dealer.push(deck.removeTopCard());
+    }
+  } else if (mode === "random") {
+    while (Math.random() < 0.5 && deck.cardsRemaining() > 0) {
+      dealer.push(deck.removeTopCard());
+    }
+  } else {
+    while (handValue(dealer) < 17) {
+      dealer.push(deck.removeTopCard());
+    }
   }
 }
+
 
 function endGame() {
   dealerTurn();
