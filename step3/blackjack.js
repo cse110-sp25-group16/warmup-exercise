@@ -179,7 +179,6 @@ function dealerTurn() {
   }
 }
 
-
 function endGame() {
   dealerTurn();
   renderHands(false);
