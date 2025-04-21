@@ -5,6 +5,9 @@ let bankroll = localStorage.getItem("bankroll") || 100;
 
 document.getElementById("bankroll").textContent = bankroll;
 
+/**
+ * Function to start new blackjack game
+ */
 function initGame() {
   deck = new CardDeck();
   deck.fillDeck();
@@ -43,6 +46,10 @@ function initGame() {
   document.getElementById("stand").addEventListener("click", endGame);
 }
 
+/**
+ * Render both player & dealer's hands
+ * @param {boolean} hideDealerSecondCard Whether or not to hide the dealer's second card
+ */
 function renderHands(hideDealerSecondCard = false) {
   renderHand("playerHand", player);
   renderHand("dealerHand", dealer, hideDealerSecondCard);
@@ -52,6 +59,10 @@ function renderHands(hideDealerSecondCard = false) {
   })
 }
 
+/**
+ * Play flip animation on cards
+ * @param {boolean} dealer Whether or not to hide dealer's second card
+ */
 function flip(dealer = false) {
   var cards = document.querySelectorAll('.flipCardInner');
   cards.forEach(card => {
@@ -68,6 +79,12 @@ function flip(dealer = false) {
   }
 }
 
+/**
+ * Render a hand of cards
+ * @param {String} containerId Container id: either player or dealer
+ * @param {div} hand Div containing cards
+ * @param {boolean} hideSecond Whether or not to hide dealer's second card
+ */
 function renderHand(containerId, hand, hideSecond = false) {
   const container = document.getElementById(containerId);
   container.innerHTML = "";
@@ -135,7 +152,11 @@ function renderHand(containerId, hand, hideSecond = false) {
   });
 }
 
-
+/**
+ * Returns the value of a hand of cards
+ * @param {div} hand Div containing cards
+ * @returns {number} Value of hand of cards
+ */
 function handValue(hand) {
   let total = 0, aces = 0;
   for (const card of hand) {
@@ -151,6 +172,10 @@ function handValue(hand) {
   return total;
 }
 
+/**
+ * "Hits" for the player, drawing a new card
+ * @returns {null} Returns nothing
+ */
 function playerHit() {
   player.push(deck.removeTopCard());
   if (handValue(player) > 21) {
@@ -160,6 +185,9 @@ function playerHit() {
   renderHands(true);
 }
 
+/**
+ * Handles logic for drawing next dealer card depending on dealer AI
+ */
 function dealerTurn() {
   const mode = document.getElementById("dealerMode").value;
 
@@ -179,6 +207,9 @@ function dealerTurn() {
   }
 }
 
+/**
+ * Ends game depending on dealer's or player's hand value
+ */
 function endGame() {
   dealerTurn();
   renderHands(false);
@@ -215,7 +246,10 @@ function endGame() {
   document.getElementById("hit").removeEventListener("click", playerHit);
   document.getElementById("stand").removeEventListener("click", endGame);
 }
-
+/**
+ * Updates player's bankroll number depending on the game result.
+ * @param {String} result The result of the game (win or loss, dealer, busted)
+ */
 function updateBankroll(result) {
   if (result.includes("win") && !result.includes("Dealer")) bankroll = +bankroll + 10;
   else if (result.includes("Dealer wins") || result.includes("busted")) bankroll = +bankroll - 10;
