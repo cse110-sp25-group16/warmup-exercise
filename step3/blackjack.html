@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="../cards.css" />
+  <title>Blackjack</title>
+</head>
+<body>
+  <main>
+    <h1>Blackjack</h1>
+    <div>Bankroll: $<span id="bankroll">100</span></div>
+  
+    <h2>Dealer</h2>
+    <div id="dealerHand" class="hand"></div>
+  
+    <h2>You</h2>
+    <div id="playerHand" class="hand"></div>
+  
+    <label for="dealerMode">Dealer Mode:</label>
+    <select id="dealerMode">
+      <option value="normal">Normal</option>
+      <option value="brain-dead">Brain-dead</option>
+      <option value="random">Random</option>
+    </select>
+  
+    <button id="hit">Hit</button>
+    <button id="stand">Stand</button>
+    <button id="restart">New Game</button>
+  
+    <div id="result"></div>
+  </main>
+  
+
+  <link rel="stylesheet" href="./cards.css" />
+  <script src="./Card.js"></script>
+  <script src="./CardDeck.js"></script>
+  <script src="./blackjack.js"></script>
+</body>
+</html>
+
+
