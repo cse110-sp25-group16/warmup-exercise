@@ -8,13 +8,35 @@
 </head>
 <body>
   <main>
-    <h1>Blackjack</h1>
-    <div>Bankroll: $<span id="bankroll">100</span></div>
-  
-    <h2>Dealer</h2>
+
+    <h1><span id="title"><strong>BLACKJACK</strong></span></h1>
+
+
+    <h2 id="handLabel">DEALER</h2>
     <div id="dealerHand" class="hand"></div>
+
+    
+    <div id="shuffle">
+      <img src="../cardsJPG/back.jpg" id="cardImage" />
+      <img src="../cardsJPG/back.jpg" id="cardImage" />
+      <img src="../cardsJPG/back.jpg" id="cardImage" />
+      <img src="../cardsJPG/back.jpg" id="cardImage" />
+      <img src="../cardsJPG/back.jpg" id="cardImage" />
+      <img src="../cardsJPG/back.jpg" id="cardImage" />
+      <img src="../cardsJPG/back.jpg" id="cardImage" />
+    </div>
+
+    <dialog id="resultPopup">
+      <p id="resultPopupText"></p>
+      <form method="dialog">
+        <button>Close</button>
+      </form>
+    </dialog>
   
-    <h2>You</h2>
+    <h2 id="handLabel">YOU</h2>
+
+    <button id="hit">Hit</button>
+    <button id="stand">Stand</button>
     <div id="playerHand" class="hand"></div>
   
     <label for="dealerMode">Dealer Mode:</label>
@@ -24,11 +46,14 @@
       <option value="random">Random</option>
     </select>
   
-    <button id="hit">Hit</button>
-    <button id="stand">Stand</button>
     <button id="restart">New Game</button>
-  
-    <div id="result"></div>
+    
+    <div class="statusText">
+      <div class="bankrollElement">
+        <span class="bankrollText">Balance: <strong>$</strong></span><span id="bankroll">100</span><span class="bankrollText"><strong>.00</strong></span><div id="balChange"></div>
+      </div>
+      <div id="result"></div>
+    </div>
   </main>
   
 
