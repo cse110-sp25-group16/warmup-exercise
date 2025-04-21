@@ -38,7 +38,7 @@ function initGame() {
 
   setTimeout(() => {
     renderHands(true);
-  }, 1580)
+  }, 1700)
 
   document.getElementById("result").textContent = "";
 
